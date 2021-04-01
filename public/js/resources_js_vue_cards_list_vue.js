@@ -75,6 +75,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "cards",
   data: function data() {
@@ -83,26 +86,29 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     };
   },
   mounted: function mounted() {
-    this.getCards();
+    this.getResults();
   },
   methods: {
-    getCards: function getCards() {
-      var _this = this;
+    getResults: function getResults() {
+      var _arguments = arguments,
+          _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+        var page;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _context.next = 2;
-                return _this.axios.get('/api/cards').then(function (response) {
+                page = _arguments.length > 0 && _arguments[0] !== undefined ? _arguments[0] : 1;
+                _context.next = 3;
+                return _this.axios.get('/api/cards?page=' + page).then(function (response) {
                   _this.cards = response.data;
                 })["catch"](function (error) {
                   console.log(error);
                   _this.cards = [];
                 });
 
-              case 2:
+              case 3:
               case "end":
                 return _context.stop();
             }
@@ -115,7 +121,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
       if (confirm("Are you sure to delete this card?")) {
         this.axios["delete"]("/api/cards/".concat(id)).then(function (response) {
-          _this2.getCards();
+          _this2.getResults();
+
+          console.log(response.data);
         })["catch"](function (error) {
           console.log(error);
         });
@@ -998,10 +1006,10 @@ var render = function() {
             _c("table", { staticClass: "table table-bordered" }, [
               _vm._m(1),
               _vm._v(" "),
-              _vm.cards.length > 0
+              _vm.cards.data.length > 0
                 ? _c(
                     "tbody",
-                    _vm._l(_vm.cards, function(card, key) {
+                    _vm._l(_vm.cards.data, function(card, key) {
                       return _c("tr", { key: key }, [
                         _c("td", [_vm._v(_vm._s(card.id))]),
                         _vm._v(" "),
@@ -1047,7 +1055,19 @@ var render = function() {
                     0
                   )
                 : _c("tbody", [_vm._m(2)])
-            ])
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "card-footer" },
+              [
+                _c("pagination", {
+                  attrs: { data: _vm.cards },
+                  on: { "pagination-change-page": _vm.getResults }
+                })
+              ],
+              1
+            )
           ])
         ])
       ])

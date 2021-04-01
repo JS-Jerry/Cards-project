@@ -3,10 +3,10 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h4>Add Card</h4>
+                    <h4>Edit Card</h4>
                 </div>
                 <div class="card-body">
-                    <form @submit.prevent="create">
+                    <form @submit.prevent="update">
                         <div class="row">
                             <div class="col-12 mb-2">
                                 <div class="form-group">

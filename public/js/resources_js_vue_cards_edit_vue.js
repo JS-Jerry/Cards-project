@@ -1020,7 +1020,7 @@ var render = function() {
               on: {
                 submit: function($event) {
                   $event.preventDefault()
-                  return _vm.create($event)
+                  return _vm.update($event)
                 }
               }
             },
@@ -1181,7 +1181,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card-header" }, [
-      _c("h4", [_vm._v("Add Card")])
+      _c("h4", [_vm._v("Edit Card")])
     ])
   },
   function() {

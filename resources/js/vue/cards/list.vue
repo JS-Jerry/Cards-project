@@ -19,8 +19,8 @@
                                     <th>Actions</th>
                                 </tr>
                             </thead>
-                            <tbody v-if="cards.length > 0">
-                                <tr v-for="(card,key) in cards" :key="key">
+                            <tbody v-if="cards.data.length > 0">
+                                <tr v-for="(card,key) in cards.data" :key="key">
                                     <td>{{ card.id }}</td>
                                     <td>{{ card.card }}</td>
                                     <td>{{ card.expiration }}</td>
@@ -36,6 +36,9 @@
                                 </tr>
                             </tbody>
                         </table>
+                        <div class="card-footer">
+                            <pagination :data="cards" @pagination-change-page="getResults"></pagination>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -52,11 +55,11 @@ export default {
         }
     },
     mounted(){
-        this.getCards()
+        this.getResults()
     },
     methods:{
-        async getCards(){
-            await this.axios.get('/api/cards').then(response=>{
+        async getResults(page = 1){
+            await this.axios.get('/api/cards?page=' + page).then(response=>{
                 this.cards = response.data
             }).catch(error=>{
                 console.log(error)
@@ -66,7 +69,8 @@ export default {
         deleteCard(id){
             if(confirm("Are you sure to delete this card?")){
                 this.axios.delete(`/api/cards/${id}`).then(response=>{
-                    this.getCards()
+                    this.getResults()
+                    console.log(response.data)
                 }).catch(error=>{
                     console.log(error)
                 })

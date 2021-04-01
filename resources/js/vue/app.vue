@@ -1,8 +1,13 @@
 <template>
     <main>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container-fluid">
+            <div class="container-fluid text-white">
                 Cards - project
+                <div class="collapse navbar-collapse">
+                    <div class="navbar-nav">
+                        <router-link exact-active-class="active" to="/cards" class="nav-item nav-link">Cards</router-link>
+                    </div>
+                </div>
             </div>
         </nav>
         <div class="container mt-5">
