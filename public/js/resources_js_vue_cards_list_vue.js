@@ -78,17 +78,30 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "cards",
   data: function data() {
     return {
-      cards: []
+      cards: {}
     };
   },
   mounted: function mounted() {
     this.getResults();
   },
   methods: {
+    // get result
     getResults: function getResults() {
       var _arguments = arguments,
           _this = this;
@@ -105,7 +118,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   _this.cards = response.data;
                 })["catch"](function (error) {
                   console.log(error);
-                  _this.cards = [];
+                  _this.cards = {};
                 });
 
               case 3:
@@ -116,6 +129,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee);
       }))();
     },
+    // delete row
     deleteCard: function deleteCard(id) {
       var _this2 = this;
 
@@ -981,23 +995,23 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "row" }, [
-    _c(
-      "div",
-      { staticClass: "col-12 mb-2 text-end" },
-      [
-        _c(
-          "router-link",
-          {
-            staticClass: "btn btn-primary",
-            attrs: { to: { name: "cardsAdd" } }
-          },
-          [_vm._v("Create")]
-        )
-      ],
-      1
-    ),
-    _vm._v(" "),
     _c("div", { staticClass: "col-12" }, [
+      _c(
+        "div",
+        { staticClass: "col-12 mb-2 text-end" },
+        [
+          _c(
+            "router-link",
+            {
+              staticClass: "btn btn-primary",
+              attrs: { to: { name: "cardsAdd" } }
+            },
+            [_vm._v("Create")]
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
       _c("div", { staticClass: "card" }, [
         _vm._m(0),
         _vm._v(" "),
@@ -1006,7 +1020,9 @@ var render = function() {
             _c("table", { staticClass: "table table-bordered" }, [
               _vm._m(1),
               _vm._v(" "),
-              _vm.cards.data.length > 0
+              typeof _vm.cards !== "undefined" &&
+              typeof _vm.cards === "object" &&
+              Object.keys(_vm.cards).length > 0
                 ? _c(
                     "tbody",
                     _vm._l(_vm.cards.data, function(card, key) {
@@ -1035,6 +1051,20 @@ var render = function() {
                             ),
                             _vm._v(" "),
                             _c(
+                              "router-link",
+                              {
+                                staticClass: "btn btn-info",
+                                attrs: {
+                                  to: {
+                                    name: "cardsShow",
+                                    params: { id: card.id }
+                                  }
+                                }
+                              },
+                              [_vm._v("Show")]
+                            ),
+                            _vm._v(" "),
+                            _c(
                               "button",
                               {
                                 staticClass: "btn btn-danger",
@@ -1059,12 +1089,33 @@ var render = function() {
             _vm._v(" "),
             _c(
               "div",
-              { staticClass: "card-footer" },
+              { staticClass: "d-flex justify-content-center" },
               [
-                _c("pagination", {
-                  attrs: { data: _vm.cards },
-                  on: { "pagination-change-page": _vm.getResults }
-                })
+                _c(
+                  "pagination",
+                  {
+                    attrs: {
+                      data: _vm.cards,
+                      limit: 2,
+                      align: _vm.center,
+                      "show-disabled": true
+                    },
+                    on: { "pagination-change-page": _vm.getResults }
+                  },
+                  [
+                    _c(
+                      "span",
+                      { attrs: { slot: "prev-nav" }, slot: "prev-nav" },
+                      [_vm._v("< Previous")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "span",
+                      { attrs: { slot: "next-nav" }, slot: "next-nav" },
+                      [_vm._v("Next >")]
+                    )
+                  ]
+                )
               ],
               1
             )

@@ -1,4 +1,4 @@
-(self["webpackChunk"] = self["webpackChunk"] || []).push([["resources_js_vue_cards_edit_vue"],{
+(self["webpackChunk"] = self["webpackChunk"] || []).push([["resources_js_vue_cards_show_vue"],{
 
 /***/ "./node_modules/@babel/runtime/regenerator/index.js":
 /*!**********************************************************!*\
@@ -11,9 +11,9 @@ module.exports = __webpack_require__(/*! regenerator-runtime */ "./node_modules/
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/vue/cards/edit.vue?vue&type=script&lang=js&":
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/vue/cards/show.vue?vue&type=script&lang=js&":
 /*!**********************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/vue/cards/edit.vue?vue&type=script&lang=js& ***!
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/vue/cards/show.vue?vue&type=script&lang=js& ***!
   \**********************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -94,19 +94,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "update-card",
+  name: "show-card",
   data: function data() {
     return {
       cards: {
@@ -114,14 +104,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         pin: "",
         activation: "",
         expiration: "",
-        balance: "",
-        _method: "patch"
-      },
-      error_card: "",
-      error_pin: "",
-      error_activation: "",
-      error_expiration: "",
-      error_balance: ""
+        balance: ""
+      }
     };
   },
   mounted: function mounted() {
@@ -159,62 +143,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             }
           }
         }, _callee);
-      }))();
-    },
-    update: function update() {
-      var _this2 = this;
-
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
-          while (1) {
-            switch (_context2.prev = _context2.next) {
-              case 0:
-                // reset error info
-                _this2.error_card = "";
-                _this2.error_pin = "";
-                _this2.error_activation = "";
-                _this2.error_expiration = "";
-                _this2.error_balance = ""; // first validation
-
-                if (!(_this2.cards.card.length == 20 && _this2.cards.pin.length == 4)) {
-                  _context2.next = 10;
-                  break;
-                }
-
-                _context2.next = 8;
-                return _this2.axios.post("/api/cards/".concat(_this2.$route.params.id), _this2.cards).then(function (response) {
-                  _this2.$router.push({
-                    name: "cardsList"
-                  });
-                })["catch"](function (error) {
-                  // error info
-                  _this2.error_card = error.response.data.errors.card;
-                  _this2.error_pin = error.response.data.errors.pin;
-                  _this2.error_activation = error.response.data.errors.activation;
-                  _this2.error_expiration = error.response.data.errors.expiration;
-                  _this2.error_balance = error.response.data.errors.balance;
-                });
-
-              case 8:
-                _context2.next = 12;
-                break;
-
-              case 10:
-                // error info
-                if (_this2.cards.card.length != 20) {
-                  _this2.error_card = 'A card number must have 20 digits';
-                }
-
-                if (_this2.cards.pin.length != 4) {
-                  _this2.error_pin = 'A pin must have 4 digits';
-                }
-
-              case 12:
-              case "end":
-                return _context2.stop();
-            }
-          }
-        }, _callee2);
       }))();
     }
   }
@@ -22414,9 +22342,9 @@ try {
 
 /***/ }),
 
-/***/ "./resources/js/vue/cards/edit.vue":
+/***/ "./resources/js/vue/cards/show.vue":
 /*!*****************************************!*\
-  !*** ./resources/js/vue/cards/edit.vue ***!
+  !*** ./resources/js/vue/cards/show.vue ***!
   \*****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -22425,8 +22353,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _edit_vue_vue_type_template_id_26c4e3dd___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./edit.vue?vue&type=template&id=26c4e3dd& */ "./resources/js/vue/cards/edit.vue?vue&type=template&id=26c4e3dd&");
-/* harmony import */ var _edit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./edit.vue?vue&type=script&lang=js& */ "./resources/js/vue/cards/edit.vue?vue&type=script&lang=js&");
+/* harmony import */ var _show_vue_vue_type_template_id_99d4c160___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./show.vue?vue&type=template&id=99d4c160& */ "./resources/js/vue/cards/show.vue?vue&type=template&id=99d4c160&");
+/* harmony import */ var _show_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./show.vue?vue&type=script&lang=js& */ "./resources/js/vue/cards/show.vue?vue&type=script&lang=js&");
 /* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
@@ -22436,9 +22364,9 @@ __webpack_require__.r(__webpack_exports__);
 /* normalize component */
 ;
 var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
-  _edit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
-  _edit_vue_vue_type_template_id_26c4e3dd___WEBPACK_IMPORTED_MODULE_0__.render,
-  _edit_vue_vue_type_template_id_26c4e3dd___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  _show_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+  _show_vue_vue_type_template_id_99d4c160___WEBPACK_IMPORTED_MODULE_0__.render,
+  _show_vue_vue_type_template_id_99d4c160___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
   false,
   null,
   null,
@@ -22448,14 +22376,14 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "resources/js/vue/cards/edit.vue"
+component.options.__file = "resources/js/vue/cards/show.vue"
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
 
 /***/ }),
 
-/***/ "./resources/js/vue/cards/edit.vue?vue&type=script&lang=js&":
+/***/ "./resources/js/vue/cards/show.vue?vue&type=script&lang=js&":
 /*!******************************************************************!*\
-  !*** ./resources/js/vue/cards/edit.vue?vue&type=script&lang=js& ***!
+  !*** ./resources/js/vue/cards/show.vue?vue&type=script&lang=js& ***!
   \******************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -22464,31 +22392,31 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_edit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./edit.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/vue/cards/edit.vue?vue&type=script&lang=js&");
- /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_edit_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_show_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./show.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/vue/cards/show.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_show_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
 
 /***/ }),
 
-/***/ "./resources/js/vue/cards/edit.vue?vue&type=template&id=26c4e3dd&":
+/***/ "./resources/js/vue/cards/show.vue?vue&type=template&id=99d4c160&":
 /*!************************************************************************!*\
-  !*** ./resources/js/vue/cards/edit.vue?vue&type=template&id=26c4e3dd& ***!
+  !*** ./resources/js/vue/cards/show.vue?vue&type=template&id=99d4c160& ***!
   \************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_edit_vue_vue_type_template_id_26c4e3dd___WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_edit_vue_vue_type_template_id_26c4e3dd___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_show_vue_vue_type_template_id_99d4c160___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_show_vue_vue_type_template_id_99d4c160___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
-/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_edit_vue_vue_type_template_id_26c4e3dd___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./edit.vue?vue&type=template&id=26c4e3dd& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/vue/cards/edit.vue?vue&type=template&id=26c4e3dd&");
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_show_vue_vue_type_template_id_99d4c160___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./show.vue?vue&type=template&id=99d4c160& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/vue/cards/show.vue?vue&type=template&id=99d4c160&");
 
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/vue/cards/edit.vue?vue&type=template&id=26c4e3dd&":
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/vue/cards/show.vue?vue&type=template&id=99d4c160&":
 /*!***************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/vue/cards/edit.vue?vue&type=template&id=26c4e3dd& ***!
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/vue/cards/show.vue?vue&type=template&id=99d4c160& ***!
   \***************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -22523,187 +22451,49 @@ var render = function() {
         _vm._m(0),
         _vm._v(" "),
         _c("div", { staticClass: "card-body" }, [
-          _c(
-            "form",
-            {
-              on: {
-                submit: function($event) {
-                  $event.preventDefault()
-                  return _vm.update($event)
-                }
-              }
-            },
-            [
-              _c("div", { staticClass: "row" }, [
-                _c("div", { staticClass: "col-12 mb-2" }, [
-                  _c("div", { staticClass: "form-group" }, [
-                    _c("label", [_vm._v("Card number")]),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.cards.card,
-                          expression: "cards.card"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      attrs: { type: "number", required: "", length: "20" },
-                      domProps: { value: _vm.cards.card },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(_vm.cards, "card", $event.target.value)
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("small", { staticClass: "text-danger" }, [
-                      _vm._v(_vm._s(_vm.error_card))
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-12 mb-2" }, [
-                  _c("div", { staticClass: "form-group" }, [
-                    _c("label", [_vm._v("Pin")]),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.cards.pin,
-                          expression: "cards.pin"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      attrs: {
-                        type: "number",
-                        required: "",
-                        minlength: "4",
-                        length: "4"
-                      },
-                      domProps: { value: _vm.cards.pin },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(_vm.cards, "pin", $event.target.value)
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("small", { staticClass: "text-danger" }, [
-                      _vm._v(_vm._s(_vm.error_pin))
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-12 mb-2" }, [
-                  _c("div", { staticClass: "form-group" }, [
-                    _c("label", [_vm._v("Activation")]),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.cards.activation,
-                          expression: "cards.activation"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      attrs: { type: "datetime-local", required: "" },
-                      domProps: { value: _vm.cards.activation },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(_vm.cards, "activation", $event.target.value)
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("small", { staticClass: "text-danger" }, [
-                      _vm._v(_vm._s(_vm.error_activation))
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-12 mb-2" }, [
-                  _c("div", { staticClass: "form-group" }, [
-                    _c("label", [_vm._v("Expiration")]),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.cards.expiration,
-                          expression: "cards.expiration"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      attrs: { type: "date", required: "" },
-                      domProps: { value: _vm.cards.expiration },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(_vm.cards, "expiration", $event.target.value)
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("small", { staticClass: "text-danger" }, [
-                      _vm._v(_vm._s(_vm.error_expiration))
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-12 mb-2" }, [
-                  _c("div", { staticClass: "form-group" }, [
-                    _c("label", [_vm._v("Balance")]),
-                    _vm._v(" "),
-                    _c("input", {
-                      directives: [
-                        {
-                          name: "model",
-                          rawName: "v-model",
-                          value: _vm.cards.balance,
-                          expression: "cards.balance"
-                        }
-                      ],
-                      staticClass: "form-control",
-                      attrs: { type: "number", step: "0.01" },
-                      domProps: { value: _vm.cards.balance },
-                      on: {
-                        input: function($event) {
-                          if ($event.target.composing) {
-                            return
-                          }
-                          _vm.$set(_vm.cards, "balance", $event.target.value)
-                        }
-                      }
-                    }),
-                    _vm._v(" "),
-                    _c("small", { staticClass: "text-danger" }, [
-                      _vm._v(_vm._s(_vm.error_balance))
-                    ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _vm._m(1)
+          _c("div", [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-12 mb-2" }, [
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", [_vm._v("Card number")]),
+                  _vm._v(" "),
+                  _c("p", [_vm._v(_vm._s(_vm.cards.expiration))])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-12 mb-2" }, [
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", [_vm._v("Pin")]),
+                  _vm._v(" "),
+                  _c("p", [_vm._v(_vm._s(_vm.cards.pin))])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-12 mb-2" }, [
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", [_vm._v("Activation")]),
+                  _vm._v(" "),
+                  _c("p", [_vm._v(_vm._s(_vm.cards.activation))])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-12 mb-2" }, [
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", [_vm._v("Expiration")]),
+                  _vm._v(" "),
+                  _c("p", [_vm._v(_vm._s(_vm.cards.expiration))])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-12 mb-2" }, [
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", [_vm._v("Balance")]),
+                  _vm._v(" "),
+                  _c("p", [_vm._v(_vm._s(_vm.cards.balance))])
+                ])
               ])
-            ]
-          )
+            ])
+          ])
         ])
       ])
     ])
@@ -22716,18 +22506,6 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card-header" }, [
       _c("h4", [_vm._v("Edit Card")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-12" }, [
-      _c(
-        "button",
-        { staticClass: "btn btn-primary", attrs: { type: "submit" } },
-        [_vm._v("Save")]
-      )
     ])
   }
 ]

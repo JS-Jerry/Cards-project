@@ -1963,6 +1963,10 @@ var CardsEdit = function CardsEdit() {
   return __webpack_require__.e(/*! import() */ "resources_js_vue_cards_edit_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./vue/cards/edit.vue */ "./resources/js/vue/cards/edit.vue"));
 };
 
+var CardsShow = function CardsShow() {
+  return __webpack_require__.e(/*! import() */ "resources_js_vue_cards_show_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./vue/cards/show.vue */ "./resources/js/vue/cards/show.vue"));
+};
+
 var routes = [{
   name: 'cardsList',
   path: '/cards',
@@ -1971,6 +1975,10 @@ var routes = [{
   name: 'cardsEdit',
   path: '/cards/:id/edit',
   component: CardsEdit
+}, {
+  name: 'cardsShow',
+  path: '/cards/:id/show',
+  component: CardsShow
 }, {
   name: 'cardsAdd',
   path: '/cards/add',
@@ -35492,7 +35500,7 @@ Vue.compile = compileToFunctions;
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_vue_cards_list_vue":1,"resources_js_vue_cards_add_vue":1,"resources_js_vue_cards_edit_vue":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_vue_cards_list_vue":1,"resources_js_vue_cards_add_vue":1,"resources_js_vue_cards_edit_vue":1,"resources_js_vue_cards_show_vue":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};

@@ -81,6 +81,27 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "add-card",
   data: function data() {
@@ -91,7 +112,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         activation: "",
         expiration: "",
         balance: ""
-      }
+      },
+      error_card: "",
+      error_pin: "",
+      error_activation: "",
+      error_expiration: "",
+      error_balance: ""
     };
   },
   methods: {
@@ -103,16 +129,47 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _context.next = 2;
+                // reset error info
+                _this.error_card = "";
+                _this.error_pin = "";
+                _this.error_activation = "";
+                _this.error_expiration = "";
+                _this.error_balance = ""; // first validation
+
+                if (!(_this.cards.card.length == 20 && _this.cards.pin.length == 4)) {
+                  _context.next = 10;
+                  break;
+                }
+
+                _context.next = 8;
                 return _this.axios.post('/api/cards', _this.cards).then(function (response) {
                   _this.$router.push({
                     name: "cardsList"
                   });
                 })["catch"](function (error) {
-                  console.log(error);
+                  // error info
+                  _this.error_card = error.response.data.errors.card;
+                  _this.error_pin = error.response.data.errors.pin;
+                  _this.error_activation = error.response.data.errors.activation;
+                  _this.error_expiration = error.response.data.errors.expiration;
+                  _this.error_balance = error.response.data.errors.balance;
                 });
 
-              case 2:
+              case 8:
+                _context.next = 12;
+                break;
+
+              case 10:
+                // error info
+                if (_this.cards.card.length != 20) {
+                  _this.error_card = 'A card number must have 20 digits';
+                }
+
+                if (_this.cards.pin.length != 4) {
+                  _this.error_pin = 'A pin must have 4 digits';
+                }
+
+              case 12:
               case "end":
                 return _context.stop();
             }
@@ -973,6 +1030,21 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "row" }, [
     _c("div", { staticClass: "col-12" }, [
+      _c("div", { staticClass: "col-12 mb-2 text-end" }, [
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-primary",
+            on: {
+              click: function($event) {
+                return _vm.$router.go(-1)
+              }
+            }
+          },
+          [_vm._v("Back")]
+        )
+      ]),
+      _vm._v(" "),
       _c("div", { staticClass: "card" }, [
         _vm._m(0),
         _vm._v(" "),
@@ -1003,7 +1075,7 @@ var render = function() {
                         }
                       ],
                       staticClass: "form-control",
-                      attrs: { type: "number", lenght: "20" },
+                      attrs: { type: "number", required: "", length: "20" },
                       domProps: { value: _vm.cards.card },
                       on: {
                         input: function($event) {
@@ -1013,7 +1085,11 @@ var render = function() {
                           _vm.$set(_vm.cards, "card", $event.target.value)
                         }
                       }
-                    })
+                    }),
+                    _vm._v(" "),
+                    _c("small", { staticClass: "text-danger" }, [
+                      _vm._v(_vm._s(_vm.error_card))
+                    ])
                   ])
                 ]),
                 _vm._v(" "),
@@ -1031,7 +1107,12 @@ var render = function() {
                         }
                       ],
                       staticClass: "form-control",
-                      attrs: { type: "number", lenght: "4" },
+                      attrs: {
+                        type: "number",
+                        required: "",
+                        minlength: "4",
+                        length: "4"
+                      },
                       domProps: { value: _vm.cards.pin },
                       on: {
                         input: function($event) {
@@ -1041,7 +1122,11 @@ var render = function() {
                           _vm.$set(_vm.cards, "pin", $event.target.value)
                         }
                       }
-                    })
+                    }),
+                    _vm._v(" "),
+                    _c("small", { staticClass: "text-danger" }, [
+                      _vm._v(_vm._s(_vm.error_pin))
+                    ])
                   ])
                 ]),
                 _vm._v(" "),
@@ -1059,7 +1144,7 @@ var render = function() {
                         }
                       ],
                       staticClass: "form-control",
-                      attrs: { type: "datetime-local" },
+                      attrs: { type: "datetime-local", required: "" },
                       domProps: { value: _vm.cards.activation },
                       on: {
                         input: function($event) {
@@ -1069,7 +1154,11 @@ var render = function() {
                           _vm.$set(_vm.cards, "activation", $event.target.value)
                         }
                       }
-                    })
+                    }),
+                    _vm._v(" "),
+                    _c("small", { staticClass: "text-danger" }, [
+                      _vm._v(_vm._s(_vm.error_activation))
+                    ])
                   ])
                 ]),
                 _vm._v(" "),
@@ -1087,7 +1176,7 @@ var render = function() {
                         }
                       ],
                       staticClass: "form-control",
-                      attrs: { type: "date" },
+                      attrs: { type: "date", required: "" },
                       domProps: { value: _vm.cards.expiration },
                       on: {
                         input: function($event) {
@@ -1097,7 +1186,11 @@ var render = function() {
                           _vm.$set(_vm.cards, "expiration", $event.target.value)
                         }
                       }
-                    })
+                    }),
+                    _vm._v(" "),
+                    _c("small", { staticClass: "text-danger" }, [
+                      _vm._v(_vm._s(_vm.error_expiration))
+                    ])
                   ])
                 ]),
                 _vm._v(" "),
@@ -1115,7 +1208,7 @@ var render = function() {
                         }
                       ],
                       staticClass: "form-control",
-                      attrs: { type: "number" },
+                      attrs: { type: "number", step: "0.01" },
                       domProps: { value: _vm.cards.balance },
                       on: {
                         input: function($event) {
@@ -1125,7 +1218,11 @@ var render = function() {
                           _vm.$set(_vm.cards, "balance", $event.target.value)
                         }
                       }
-                    })
+                    }),
+                    _vm._v(" "),
+                    _c("small", { staticClass: "text-danger" }, [
+                      _vm._v(_vm._s(_vm.error_balance))
+                    ])
                   ])
                 ]),
                 _vm._v(" "),
