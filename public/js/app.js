@@ -1863,6 +1863,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
 
 /***/ }),
@@ -1951,6 +1952,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "routes": () => (/* binding */ routes)
 /* harmony export */ });
+var Welcome = function Welcome() {
+  return __webpack_require__.e(/*! import() */ "resources_js_vue_Welcome_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./vue/Welcome.vue */ "./resources/js/vue/Welcome.vue"));
+}; // cards
+
+
 var CardsList = function CardsList() {
   return __webpack_require__.e(/*! import() */ "resources_js_vue_cards_list_vue").then(__webpack_require__.bind(__webpack_require__, /*! ./vue/cards/list.vue */ "./resources/js/vue/cards/list.vue"));
 };
@@ -1968,6 +1974,11 @@ var CardsShow = function CardsShow() {
 };
 
 var routes = [{
+  name: 'home',
+  path: '/',
+  component: Welcome
+}, // cards
+{
   name: 'cardsList',
   path: '/cards',
   component: CardsList
@@ -20101,26 +20112,36 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("main", [
     _c("nav", { staticClass: "navbar navbar-expand-lg navbar-dark bg-dark" }, [
-      _c("div", { staticClass: "container-fluid text-white" }, [
-        _vm._v("\n            Cards - project\n            "),
-        _c("div", { staticClass: "collapse navbar-collapse" }, [
+      _c(
+        "div",
+        { staticClass: "container-fluid text-white" },
+        [
           _c(
-            "div",
-            { staticClass: "navbar-nav" },
-            [
-              _c(
-                "router-link",
-                {
-                  staticClass: "nav-item nav-link",
-                  attrs: { "exact-active-class": "active", to: "/cards" }
-                },
-                [_vm._v("Cards")]
-              )
-            ],
-            1
-          )
-        ])
-      ])
+            "router-link",
+            { staticClass: "navbar-brand", attrs: { to: "/" } },
+            [_vm._v("Cards - project")]
+          ),
+          _vm._v(" "),
+          _c("div", { staticClass: "collapse navbar-collapse" }, [
+            _c(
+              "div",
+              { staticClass: "navbar-nav" },
+              [
+                _c(
+                  "router-link",
+                  {
+                    staticClass: "nav-item nav-link",
+                    attrs: { "exact-active-class": "active", to: "/cards" }
+                  },
+                  [_vm._v("Cards")]
+                )
+              ],
+              1
+            )
+          ])
+        ],
+        1
+      )
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "container mt-5" }, [_c("router-view")], 1)
@@ -35500,7 +35521,7 @@ Vue.compile = compileToFunctions;
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_vue_cards_list_vue":1,"resources_js_vue_cards_add_vue":1,"resources_js_vue_cards_edit_vue":1,"resources_js_vue_cards_show_vue":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_vue_Welcome_vue":1,"resources_js_vue_cards_list_vue":1,"resources_js_vue_cards_add_vue":1,"resources_js_vue_cards_edit_vue":1,"resources_js_vue_cards_show_vue":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};
