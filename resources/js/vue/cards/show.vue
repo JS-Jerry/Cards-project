@@ -84,7 +84,7 @@
                     const { card, pin, activation, expiration, balance } = response.data
                     this.cards.card = card
                     this.cards.pin = pin
-                    this.cards.activation = moment(activation).format('YYYY-MM-DD') + "T" + moment(activation).format('HH:mm')
+                    this.cards.activation = moment(activation).format('YYYY-MM-DD') + " " + moment(activation).format('HH:mm')
                     this.cards.expiration = expiration
                     this.cards.balance = balance / 100
                 }).catch(error=>{
